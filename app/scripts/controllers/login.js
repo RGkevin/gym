@@ -8,17 +8,30 @@
  * Controller of the gymApp
  */
 angular.module('gymApp')
-  .controller('LoginCtrl', ['$scope', 'session', function ($scope, session) {
+  .controller('LoginCtrl', ['$scope', 'session', '$location', function ($scope, session, $location) {
 
     // data handler
     $scope.user = {
-      name: '',
-      password: ''
+      email: '',
+      password: '',
+      remember: true
     };
 
     $scope.submit_login = function () {
 
-      session.login($scope.user);
+      session.login($scope.user, $scope.user.remember).then(function (response) {
+        console.log( 'response', response );
+
+        // check if logged user is an Admin
+        if ( response.profile_id == 1 ) {
+          // go to admin home page
+          $location.path( 'admin/' + response.gym_id );
+        } else {
+          // go to user home page
+        }
+
+      });
+
 
     };
   }]);

@@ -2,9 +2,9 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Gym</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -12,6 +12,8 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="bower_components/uikit/css/uikit.gradient.min.css" />
+    <link rel="stylesheet" href="bower_components/uikit/css/components/datepicker.gradient.min.css"/>
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
@@ -21,7 +23,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header" ng-if="controller_name != 'login_ctrl'">
+    <div class="header" ng-if="rg_router_is_wl">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -55,7 +57,7 @@
     <div class="footer">
       <hr/>
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> Powered by Quarks</p>
+        <p>Powered by <span class="uk-icon-cube"></span> Quarks</p>
       </div>
     </div>
 
@@ -88,6 +90,10 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <!-- build:js(.) scripts/components.js -->
+    <script src="bower_components/uikit/js/components/datepicker.min.js"></script>
+    <!-- endbuild -->
+
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/run.js"></script>
@@ -95,6 +101,18 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/services/session.js"></script>
+        <script src="scripts/controllers/gym.js"></script>
+        <script src="scripts/directives/rgdatepicker.js"></script>
+        <script src="scripts/services/utility.js"></script>
+        <script src="scripts/controllers/classes.js"></script>
+        <script src="scripts/controllers/classescreate.js"></script>
+        <script src="scripts/controllers/gymcreate.js"></script>
+        <script src="scripts/services/gym.js"></script>
+        <script src="scripts/controllers/reset.js"></script>
+        <script src="scripts/services/user.js"></script>
+        <script src="scripts/controllers/admin.js"></script>
+        <script src="scripts/controllers/usercreate.js"></script>
+        <script src="scripts/controllers/forgot.js"></script>
         <!-- endbuild -->
 </body>
 </html>
