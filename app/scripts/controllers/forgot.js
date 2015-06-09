@@ -14,5 +14,12 @@ angular.module('gymApp')
       email: ''
     };
 
+    $scope.forgot = function () {
+      console.log( 'user', $scope.user );
+      user.forgot($scope.user).then(function (response) {
+        console.log( 'response', response );
+      });
+    };
+
 
   });

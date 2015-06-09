@@ -24,7 +24,7 @@ angular
      * set white list of routes
      * they are routes that don't need to pass the validate function
      */
-    utilityProvider.set_router_white_list(['login', 'user/reset', 'gym/add']);
+    utilityProvider.set_router_white_list(['login', 'user/reset', 'gym/add', 'user/forgot']);
 
     $routeProvider
       /*.when('/', {
