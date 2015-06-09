@@ -13,7 +13,9 @@ angular.module('gymApp')
 
     var session = {
       token: null,
-      token_key: 'session'
+      profile_id: null,
+      token_key: 'session',
+      profile_key: 'profile'
     };
 
     /**
@@ -25,11 +27,31 @@ angular.module('gymApp')
     }
 
     /**
+     * Save the profile ID
+     * 1 ADMIN
+     * 2 STAFF
+     * 3 COACH
+     * 4 USER
+     * @param id
+     */
+    function save_profile_id (id) {
+      $cookieStore.put(session.profile_key, id);
+    }
+
+    /**
      * store given token in a local variable
      * @param token
      */
     this.store_session_token = function (token) {
       session.token = token;
+    };
+
+    /**
+     * save profile id
+     * @param id
+     */
+    this.store_profile_id = function (id) {
+      session.profile_id = id;
     };
 
     /**
@@ -44,6 +66,20 @@ angular.module('gymApp')
         return $cookieStore.get(session.token_key);
       } else {
         return null;
+      }
+    };
+
+    /**
+     * return profile id
+     * @returns {*}
+     */
+    this.get_profile_id = function () {
+      if ( session.profile_id ) {
+        return session.profile_id;
+      } else if ( $cookieStore.get(session.profile_key) ) {
+        return $cookieStore.get(session.profile_key);
+      } else {
+        return 0;
       }
     };
 
@@ -64,8 +100,10 @@ angular.module('gymApp')
 
           if ( remember ) {
             save_session_token(response.session_key || '');
+            save_profile_id(response.profile_id);
           }
           self.store_session_token(response.session_key || '');
+          self.store_profile_id(response.profile_id);
           deferred.resolve(response);
         }, function (reason) {
           deferred.reject(reason);

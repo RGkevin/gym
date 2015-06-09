@@ -8,10 +8,11 @@
  * Controller of the gymApp
  */
 angular.module('gymApp')
-  .controller('ForgotCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ForgotCtrl', function ($scope, user) {
+
+    $scope.user = {
+      email: ''
+    };
+
+
   });

@@ -59,10 +59,6 @@ angular
         templateUrl: 'views/reset.html',
         controller: 'ResetCtrl'
       })
-      .when('/user/reset', {
-        templateUrl: 'views/reset.html',
-        controller: 'ResetCtrl'
-      })
       .when('/admin/:id', {
         templateUrl: 'views/admin.html',
         controller: 'AdminCtrl'
@@ -71,7 +67,7 @@ angular
         templateUrl: 'views/usercreate.html',
         controller: 'UsercreateCtrl'
       })
-      .when('/forgot', {
+      .when('/user/forgot', {
         templateUrl: 'views/forgot.html',
         controller: 'ForgotCtrl'
       })
